@@ -40,6 +40,7 @@ class SuperAdminDashboard extends StatelessWidget {
 
     return DashboardLayout(
       title: 'Admin Dashboard',
+      userRole: 'admin',
       children: [
         Text(
           'Overview',

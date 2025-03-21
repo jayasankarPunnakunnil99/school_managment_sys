@@ -24,6 +24,7 @@ class SubAdminDashboard extends StatelessWidget {
           },
         ),
       ],
+      userRole: 'admin',
       children: [
         Text(
           'Overview',

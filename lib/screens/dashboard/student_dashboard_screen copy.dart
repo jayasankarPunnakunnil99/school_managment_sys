@@ -37,6 +37,7 @@ class StudentDashboard extends StatelessWidget {
   Widget build(BuildContext context) {
     return DashboardLayout(
       title: 'Student Dashboard',
+      userRole: 'student',
       children: [
         Text(
           'Overview',
