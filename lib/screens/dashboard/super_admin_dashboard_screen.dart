@@ -6,35 +6,38 @@ import '../../constants/app_styles.dart';
 class SuperAdminDashboard extends StatelessWidget {
   const SuperAdminDashboard({super.key});
 
-  final List<StatCard> statCards = const [
-  StatCard(
-    title: 'Total\nStudents',
-    value: '1,234',
-    icon: Icons.school,
-    color: Colors.blue,
-  ),
-  StatCard(
-    title: 'Total\nTeachers',
-    value: '75',
-    icon: Icons.person,
-    color: Colors.green,
-  ),
-  StatCard(
-    title: 'Total\nStaff',
-    value: '45',
-    icon: Icons.group,
-    color: Colors.orange,
-  ),
-  StatCard(
-    title: 'Pending\nFee',
-    value: '\$52,000',
-    icon: Icons.attach_money,
-    color: Colors.purple,
-  )
-];
-
   @override
   Widget build(BuildContext context) {
+    final statCards = [
+      StatCard(
+        title: 'Total\nStudents',
+        value: '1,234',
+        icon: Icons.school,
+        color: Colors.blue,
+        onTap: () => Navigator.pushNamed(context, '/students'),
+      ),
+      StatCard(
+        title: 'Total\nTeachers',
+        value: '75',
+        icon: Icons.person,
+        color: Colors.green,
+        onTap: () => Navigator.pushNamed(context, '/teachers'),
+      ),
+      StatCard(
+        title: 'Total\nStaff',
+        value: '45',
+        icon: Icons.group,
+        color: Colors.orange,
+        onTap: () => Navigator.pushNamed(context, '/staff'),
+      ),
+      StatCard(
+        title: 'Pending\nFee',
+        value: '\$52,000',
+        icon: Icons.attach_money,
+        color: Colors.purple,
+      ),
+    ];
+
     return DashboardLayout(
       title: 'Admin Dashboard',
       children: [

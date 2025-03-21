@@ -3,9 +3,12 @@ import 'package:school_management_system/pages/preferences_debug_page.dart';
 import 'package:school_management_system/screens/dashboard/student_dashboard_screen%20copy.dart';
 import 'package:school_management_system/screens/dashboard/super_admin_dashboard_screen.dart';
 import 'package:school_management_system/screens/dashboard/teachers_dashboard_screen.dart';
+import 'package:school_management_system/screens/staff/staff_list_screen.dart';
+import 'package:school_management_system/screens/teacher/teacher_list_screen.dart';
 import '../screens/auth/login_screen.dart';
 import '../screens/auth/forgot_password_screen.dart';
 import '../screens/dashboard/sub_admin_dashboard_screen.dart';
+import '../screens/student/student_list_screen.dart';
 
 class AppRoutes {
   static const String login = '/login';
@@ -16,6 +19,9 @@ class AppRoutes {
   static const String staffDashboard = '/staff-dashboard';
   static const String studentDashboard = '/student-dashboard';
   static const String defaultPage = '/default';
+  static const String students = '/students';
+  static const String staff = '/staff';
+  static const String teacher = '/teachers';
 
   static Map<String, WidgetBuilder> routes = {
     login: (context) => const LoginScreen(),
@@ -26,5 +32,8 @@ class AppRoutes {
     // staffDashboard: (context) => const StaffDashboard(),
     studentDashboard: (context) => const StudentDashboard(),
     defaultPage: (context) => const PreferencesDebugPage(),
+    students: (context) => const StudentListScreen(),
+    staff: (context) => const StaffListScreen(),
+    teacher: (context) => const TeacherListScreen(),
   };
 } 

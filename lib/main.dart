@@ -10,6 +10,10 @@ import 'package:school_management_system/routes/app_routes.dart';
 import 'package:school_management_system/screens/auth/login_screen.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:school_management_system/providers/shared_preferences_provider.dart';
+import 'package:school_management_system/providers/teacher_provider.dart';
+import 'package:school_management_system/providers/staff_provider.dart';
+import 'package:school_management_system/screens/teacher/teacher_list_screen.dart';
+import 'package:school_management_system/screens/staff/staff_list_screen.dart';
 
 Future<void> main() async {
   const supabaseUrl = 'https://xbuaphojyoydxfhyvoxp.supabase.co';
@@ -29,6 +33,8 @@ Future<void> main() async {
         ChangeNotifierProvider(
           create: (_) => SharedPreferencesProvider()..loadSavedPreferences(),
         ),
+        ChangeNotifierProvider(create: (_) => TeacherProvider()),
+        ChangeNotifierProvider(create: (_) => StaffProvider()),
       ],
       child: const MyApp(),
     ),
@@ -45,7 +51,11 @@ class MyApp extends StatelessWidget {
       builder: (context, themeProvider, child) {
         return MaterialApp(
           initialRoute: "/",
-          routes: AppRoutes.routes,
+          routes: {
+            '/teachers': (context) => const TeacherListScreen(),
+            '/staff': (context) => const StaffListScreen(),
+            // ... other routes
+          },
           title: 'School Management System',
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
