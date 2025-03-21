@@ -14,6 +14,7 @@ import 'package:school_management_system/providers/teacher_provider.dart';
 import 'package:school_management_system/providers/staff_provider.dart';
 import 'package:school_management_system/screens/teacher/teacher_list_screen.dart';
 import 'package:school_management_system/screens/staff/staff_list_screen.dart';
+import 'package:school_management_system/screens/student/student_list_screen.dart';
 
 Future<void> main() async {
   const supabaseUrl = 'https://xbuaphojyoydxfhyvoxp.supabase.co';
@@ -51,11 +52,7 @@ class MyApp extends StatelessWidget {
       builder: (context, themeProvider, child) {
         return MaterialApp(
           initialRoute: "/",
-          routes: {
-            '/teachers': (context) => const TeacherListScreen(),
-            '/staff': (context) => const StaffListScreen(),
-            // ... other routes
-          },
+          routes: AppRoutes.routes,
           title: 'School Management System',
           debugShowCheckedModeBanner: false,
           theme: ThemeData(

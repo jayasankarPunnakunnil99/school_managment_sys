@@ -50,9 +50,9 @@ class _StudentListScreenState extends State<StudentListScreen> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(4.0),
+                padding: const EdgeInsets.all(16.0),
                 child: Card(
-                  elevation: 0,
+                  elevation: 2,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: _buildFilters(),
@@ -102,9 +102,14 @@ class _StudentListScreenState extends State<StudentListScreen> {
                   ),
             ),
             const SizedBox(height: 8),
-            Row(
+            Wrap(
+              spacing: 16, // horizontal spacing
+              runSpacing: 16, // vertical spacing
               children: [
-                Expanded(
+                SizedBox(
+                  width: MediaQuery.of(context).size.width > 600 
+                      ? (MediaQuery.of(context).size.width - 56) / 2 // On larger screens, take half width
+                      : double.infinity, // On smaller screens, take full width
                   child: DropdownButtonFormField<String>(
                     decoration: const InputDecoration(
                       labelText: 'Class',
@@ -126,8 +131,10 @@ class _StudentListScreenState extends State<StudentListScreen> {
                     hint: const Text('Select Class'),
                   ),
                 ),
-                const SizedBox(width: 16),
-                Expanded(
+                SizedBox(
+                  width: MediaQuery.of(context).size.width > 600
+                      ? (MediaQuery.of(context).size.width - 56) / 2
+                      : double.infinity,
                   child: DropdownButtonFormField<String>(
                     decoration: const InputDecoration(
                       labelText: 'Subject',
