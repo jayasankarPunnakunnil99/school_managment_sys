@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:school_management_system/providers/auth_provider.dart';
+import 'package:school_management_system/providers/theme_provider.dart';
 import 'package:school_management_system/routes/app_routes.dart';
 import '../../constants/app_styles.dart';
 
@@ -17,6 +18,8 @@ class DashboardLayout extends StatelessWidget {
     required this.userRole,
     this.actions,
   });
+  
+  get isDarkMode => ThemeProvider().isDarkMode;
 
   List<DrawerMenuItem> _getMenuItemsByRole() {
     switch (userRole.toLowerCase()) {
@@ -198,7 +201,7 @@ class DashboardLayout extends StatelessWidget {
                             ),
                             title: Text(
                               item.title,
-                              style: AppStyles.subheadingStyle.copyWith(
+                              style: AppStyles.subheadingStyle().copyWith(
                                 color: Colors.grey[800],
                                 fontSize: 15,
                               ),
@@ -217,12 +220,22 @@ class DashboardLayout extends StatelessWidget {
                         .toList(),
               ),
             ),
+            ListTile(
+              leading: Icon(isDarkMode ? Icons.dark_mode : Icons.light_mode),
+              title: const Text('Dark Mode'),
+              trailing: Switch(
+                value: isDarkMode,
+                onChanged: (value) {
+                  context.read<ThemeProvider>().toggleTheme();
+                },
+              ),
+            ),
             const Divider(),
             ListTile(
               leading: const Icon(Icons.logout, color: Colors.red),
               title: Text(
                 'Logout',
-                style: AppStyles.subheadingStyle.copyWith(color: Colors.red),
+                style: AppStyles.subheadingStyle().copyWith(color: Colors.red),
               ),
               onTap: () async {
                 await authProvider.logout();

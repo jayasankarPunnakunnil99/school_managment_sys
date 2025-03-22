@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:school_management_system/providers/theme_provider.dart';
 import '../../constants/app_styles.dart';
 
 class StatCard extends StatelessWidget {
@@ -41,7 +42,7 @@ class StatCard extends StatelessWidget {
                     title,
                     softWrap: true,
                     overflow: TextOverflow.clip,
-                    style: AppStyles.subheadingStyle.copyWith(
+                    style: AppStyles.subheadingStyle(isDark:  ThemeProvider().isDarkMode).copyWith(
                       color: Colors.grey[600],
                     ),
                   ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:school_management_system/providers/theme_provider.dart';
 import '../../constants/app_styles.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
@@ -30,7 +31,9 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 children: [
                   Text(
                     'Reset Password',
-                    style: AppStyles.headingStyle,
+                    style: AppStyles.subheadingStyle(
+            isDark: ThemeProvider().isDarkMode,
+          ).copyWith(color: Colors.grey[600]),
                   ),
                   const SizedBox(height: 20),
                   const Text(

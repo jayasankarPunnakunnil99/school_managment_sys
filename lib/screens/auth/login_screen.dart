@@ -163,19 +163,25 @@ class _LoginScreenState extends State<LoginScreen> {
       );
 
       if (success && mounted) {
+        String route = AppRoutes.superAdminDashboard;
         switch (_selectedRole) {
           case 'super_admin':
+            route = AppRoutes.superAdminDashboard;
             break;
           case 'sub_admin':
+            route = AppRoutes.subAdminDashboard;
             break;
           case 'teacher':
+            route = AppRoutes.teacherDashboard;
             break;
           case 'staff':
+            route = AppRoutes.staffDashboard;
             break;
           case 'student':
+            route = AppRoutes.studentDashboard;
             break;
         }
-        Navigator.pushReplacementNamed(context, AppRoutes.defaultPage);
+        Navigator.pushReplacementNamed(context, route);
       } else {
         setState(() {
           _errorMessage = authProvider.errorMessage ?? "Login failed.";

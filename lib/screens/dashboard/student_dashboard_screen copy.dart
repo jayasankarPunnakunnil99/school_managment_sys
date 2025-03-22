@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:school_management_system/providers/theme_provider.dart';
 import '../../widgets/dashboard/dashboard_layout.dart';
 import '../../widgets/dashboard/stat_card.dart';
 import '../../constants/app_styles.dart';
@@ -41,7 +42,9 @@ class StudentDashboard extends StatelessWidget {
       children: [
         Text(
           'Overview',
-          style: AppStyles.headingStyle,
+          style: AppStyles.subheadingStyle(
+            isDark: ThemeProvider().isDarkMode,
+          ).copyWith(color: Colors.grey[600]),
         ),
         const SizedBox(height: 20),
         GridView.count(
@@ -67,7 +70,7 @@ class StudentDashboard extends StatelessWidget {
       children: [
         Text(
           'Quick Actions',
-          style: AppStyles.subheadingStyle,
+          style: AppStyles.subheadingStyle(isDark:  ThemeProvider().isDarkMode),
         ),
         const SizedBox(height: 16),
         Wrap(
@@ -137,7 +140,7 @@ class StudentDashboard extends StatelessWidget {
       children: [
         Text(
           'School Announcements & Notices',
-          style: AppStyles.subheadingStyle,
+          style: AppStyles.subheadingStyle(isDark:  ThemeProvider().isDarkMode),
         ),
         const SizedBox(height: 16),
         Card(
